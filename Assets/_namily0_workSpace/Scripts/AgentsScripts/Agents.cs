@@ -6,11 +6,14 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
+using Player;
 public class Agents : Agent
 {
+    private playerCon _playerCon;
+
     void Start()
     {
-        
+        _playerCon = this.GetComponent<playerCon>();
     }
 
     public override void OnEpisodeBegin()
