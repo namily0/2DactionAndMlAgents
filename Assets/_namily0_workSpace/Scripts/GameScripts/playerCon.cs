@@ -56,6 +56,10 @@ namespace Player//namespace �ɂ���ăt�H���_�������
         private float HPtime = 0F;
         private float HPspan = 2.0F;
 
+        //playerFlag(for Agent)
+        public bool jumpFlag = false;
+        public bool bulletFlag = false;
+
 
         void Start()
         {
@@ -112,6 +116,8 @@ namespace Player//namespace �ɂ���ăt�H���_�������
                     bulletNum -= 1;
                 }
             }
+
+            bulletFlag = ((bulletTime > bulletSpan) && bulletNum > 0);
             bulletTime += Time.deltaTime;
         }
 
@@ -146,6 +152,7 @@ namespace Player//namespace �ɂ���ăt�H���_�������
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumptime = 0;
             }
+            jumpFlag = (jumptime > jumpInterval);
         }
 
         void Shot2()
@@ -172,6 +179,7 @@ namespace Player//namespace �ɂ���ăt�H���_�������
                     bulletNum -= 1;
                 }
             }
+            bulletFlag = ((bulletTime > bulletSpan) && bulletNum > 0);
             bulletTime += Time.deltaTime;
         }
 
@@ -206,6 +214,7 @@ namespace Player//namespace �ɂ���ăt�H���_�������
                 rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
                 jumptime = 0;
             }
+            jumpFlag = (jumptime > jumpInterval);
         }
 
 
